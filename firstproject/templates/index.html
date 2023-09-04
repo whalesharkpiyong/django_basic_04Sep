@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index</title>
+    </head>
+    <body>
+        <h1> Index </h1> 
+        <p>안녕하세요{name}님</p>
+        <form action="/getdata/" method="POST">
+            {% csrf_token %}
+            <input type="text" name = "todo"/> 
+            <input type="text" name = "todo2"/> 
+            <input type="text" name = "todo3"/> 
+            <button type="submit">제출</button>
+        </form>
+    </body>
+</html>
