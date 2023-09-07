@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<div class="'p-4">
+  <a href="/todo/create/" class="m-2 flex justify-end">
+    <button class="bg-green-600 p-2 rounded-full" text-white>새로 만들기</button>
+  </a>
+  <ul>
+    {% for todo in todo %}
+    <a href="/todo/{{todo.id}}">
+      <li class="p-2 border-b">
+        <div>{{todo.content}}</div>
+      </li>
+    </a>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

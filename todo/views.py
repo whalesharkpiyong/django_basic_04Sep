@@ -19,17 +19,17 @@ def index(request):
 @login_required(login_url='/user/login/')
 @csrf_exempt
 def create(request):
-    if request.user.is_authenticated:
-        if request.method == 'POST':
-            Todo.objects.create(
-                content=request.POST['content'], user=request.user)
-            return redirect('/todo/')
-        elif request.method == 'GET':
-            return render(request, "todo/create.html")
-        else:
-            return HttpResponse("Invalid request method", status=405)
+    if request.method == 'POST':
+        Todo.objects.create(
+            content=request.POST['content'],
+            user=request.user,
+            image=request.FILES.get('image'),
+        )
+        return redirect('/todo/')
+    elif request.method == 'GET':
+        return render(request, "todo/create.html")
     else:
-        return redirect("/user/login")
+        return HttpResponse("Invalid request method", status=405)
 
 
 def read(request, todo_id):
